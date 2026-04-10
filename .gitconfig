@@ -1,0 +1,5 @@
+[user]
+	email = "13868@holbertonstudents.com "
+	name = AyselBayramova
+[credential]
+	helper = cache --timeout=3600

@@ -1,1 +1,1 @@
-TDD Project - Python Test Driven Development
+This project is about Test Driven Development in Python.

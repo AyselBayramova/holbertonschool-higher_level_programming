@@ -52,13 +52,12 @@ class Rectangle:
         return (self.__width * 2) + (self.__height * 2)
 
     def __str__(self):
-        """Return a string representation of the rectangle using print_symbol."""
+        """Return a string representation of the rectangle."""
         if self.__width == 0 or self.__height == 0:
             return ""
 
         rect_lines = []
         for i in range(self.__height):
-            # print_symbol-u sətir boyu width qədər təkrar edirik
             line = str(self.print_symbol) * self.__width
             rect_lines.append(line)
         return "\n".join(rect_lines)

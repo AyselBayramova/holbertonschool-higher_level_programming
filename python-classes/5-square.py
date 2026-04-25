@@ -28,8 +28,12 @@ class Square:
         self.__size = value
 
     def area(self):
-        """This prints the square with the # character."""
+        """This returns the area of the square."""
+        return self.__size * self.__size
 
+    def my_print(self):
+        """This prints the square with the # character."""
+        # Əgər ölçü 0-dırsa, sadəcə boş bir sətir çap edirik.
         if self.__size == 0:
             print("")
             return

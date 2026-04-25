@@ -19,31 +19,33 @@ def matrix_divided(matrix, div):
         ZeroDivisionError: If div is 0.
 
     Returns:
-        list: A new matrix with the result of the division, rounded to 2 decimal places.
+        list: A new matrix with the result of the division.
     """
 
-    # 1. Check if matrix is a list of lists of integers/floats
+    # 1. Matrix validation
     msg = "matrix must be a matrix (list of lists) of integers/floats"
-    if not isinstance(matrix, list) or not matrix or not all(isinstance(row, list) for row in matrix):
+    if not isinstance(matrix, list) or not matrix:
         raise TypeError(msg)
-
+    if not all(isinstance(row, list) for row in matrix):
+        raise TypeError(msg)
+    if not all(len(row) > 0 for row in matrix):
+        raise TypeError(msg)
+    
     for row in matrix:
-        if len(row) == 0:
-            raise TypeError(msg)
         if not all(isinstance(el, (int, float)) for el in row):
             raise TypeError(msg)
 
-    # 2. Check if each row has the same size
+    # 2. Row size validation
     if not all(len(row) == len(matrix[0]) for row in matrix):
         raise TypeError("Each row of the matrix must have the same size")
 
-    # 3. Check if div is a number
+    # 3. Divisor validation
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
 
-    # 4. Check for division by zero
+    # 4. Zero division check
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    # 5. Return a new matrix with elements divided and rounded
+    # 5. Calculation
     return [[round(el / div, 2) for el in row] for row in matrix]

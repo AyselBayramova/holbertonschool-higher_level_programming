@@ -1,4 +1,3 @@
-===============================
 Testing the BaseGeometry Class
 ===============================
 
@@ -26,6 +25,19 @@ Check if integer_validator raises TypeError for non-integer values:
     >>> bg.integer_validator("info", [1, 2, 3])
     Traceback (most recent call last):
     TypeError: info must be an integer
+
+Check if integer_validator raises TypeError for more invalid types:
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
 
 Check if integer_validator raises ValueError for values <= 0:
     >>> bg.integer_validator("age", 0)

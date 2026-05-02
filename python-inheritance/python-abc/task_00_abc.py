@@ -1,31 +1,36 @@
 #!/usr/bin/python3
-"""
-Module task_00_abc
-Defines an abstract class Animal and its subclasses Dog and Cat
-"""
 from abc import ABC, abstractmethod
 
-
 class Animal(ABC):
-    """Abstract class Animal"""
+    """Abstract base class representing an Animal."""
 
     @abstractmethod
     def sound(self):
-        """Abstract method to be implemented by subclasses"""
+        """Abstract method to be implemented by subclasses.
+
+        Returns:
+            str: The sound made by the animal.
+        """
         pass
 
-
 class Dog(Animal):
-    """Subclass Dog that inherits from Animal"""
+    """Class representing a Dog, subclass of Animal."""
 
     def sound(self):
-        """Returns the sound of a dog"""
+        """Returns the sound made by the dog.
+
+        Returns:
+            str: The sound 'Bark'.
+        """
         return "Bark"
 
-
 class Cat(Animal):
-    """Subclass Cat that inherits from Animal"""
+    """Class representing a Cat, subclass of Animal."""
 
     def sound(self):
-        """Returns the sound of a cat"""
+        """Returns the sound made by the cat.
+
+        Returns:
+            str: The sound 'Meow'.
+        """
         return "Meow"

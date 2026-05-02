@@ -46,15 +46,16 @@ def add_user():
         return jsonify({"error": "Invalid JSON"}), 400
 
     username = data.get("username")
-    
+
     # Validation checks
     if not username:
         return jsonify({"error": "Username is required"}), 400
-    
-    if username in users:
-        return jsonify({"error": "User already exists"}), 400
 
-    # Add user to memory
+    # Check for duplicate username with status 409
+    if username in users:
+        return jsonify({"error": "Username already exists"}), 409
+
+    # Add user to memory and return 201 status
     users[username] = data
     return jsonify({
         "message": "User added",

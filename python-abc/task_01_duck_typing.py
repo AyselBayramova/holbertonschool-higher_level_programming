@@ -7,9 +7,7 @@ import math
 
 
 class Shape(ABC):
-    """
-    Abstract class representing a geometric shape.
-    """
+    """Abstract class representing a geometric shape."""
 
     @abstractmethod
     def area(self):
@@ -23,9 +21,7 @@ class Shape(ABC):
 
 
 class Circle(Shape):
-    """
-    Class representing a Circle.
-    """
+    """Class representing a Circle."""
 
     def __init__(self, radius):
         """Initializes with radius."""
@@ -41,9 +37,7 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
-    """
-    Class representing a Rectangle.
-    """
+    """Class representing a Rectangle."""
 
     def __init__(self, width, height):
         """Initializes with width and height."""

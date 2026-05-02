@@ -5,11 +5,16 @@ Import the class from the module:
     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
     >>> bg = BaseGeometry()
 
-Check if integer_validator works with valid positive integers:
+Check area method:
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+Check integer_validator with valid integers:
     >>> bg.integer_validator("my_int", 12)
     >>> bg.integer_validator("width", 89)
 
-Check if integer_validator raises TypeError for non-integer values:
+Check integer_validator with invalid types:
     >>> bg.integer_validator("name", "John")
     Traceback (most recent call last):
     TypeError: name must be an integer
@@ -26,7 +31,6 @@ Check if integer_validator raises TypeError for non-integer values:
     Traceback (most recent call last):
     TypeError: info must be an integer
 
-Check if integer_validator raises TypeError for more invalid types:
     >>> bg.integer_validator("age", (4,))
     Traceback (most recent call last):
     TypeError: age must be an integer
@@ -39,7 +43,7 @@ Check if integer_validator raises TypeError for more invalid types:
     Traceback (most recent call last):
     TypeError: age must be an integer
 
-Check if integer_validator raises ValueError for values <= 0:
+Check integer_validator with invalid values (<= 0):
     >>> bg.integer_validator("age", 0)
     Traceback (most recent call last):
     ValueError: age must be greater than 0
@@ -47,8 +51,3 @@ Check if integer_validator raises ValueError for values <= 0:
     >>> bg.integer_validator("distance", -4)
     Traceback (most recent call last):
     ValueError: distance must be greater than 0
-
-Check if area() raises the correct Exception:
-    >>> bg.area()
-    Traceback (most recent call last):
-    Exception: area() is not implemented
